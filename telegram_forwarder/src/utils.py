@@ -52,5 +52,6 @@ def handle_flood_wait(func):
                 return await func(*args, **kwargs)
             except FloodWait as e:
                 sleep_time = int(str(e).split("A wait of ")[1].split(" ")[0])
+                print(e)
                 await asyncio.sleep(sleep_time)
     return wrapper

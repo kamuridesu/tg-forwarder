@@ -77,6 +77,7 @@ class Downloader:
             function = data["function"]
             mime = data["type"]
             file_name = data.get("filename", "")
+            print(mime)
             extension = mime.split("/")[1]
             with NamedTemporaryFile(
                 suffix=f".{extension}", delete=False, prefix="tgbot-"
@@ -110,6 +111,6 @@ class Downloader:
         except ValueError:
             pass
         try:
-            os.remove(filename)
+            os.remove(file.name)
         except Exception:
             pass

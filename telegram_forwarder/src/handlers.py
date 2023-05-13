@@ -57,4 +57,4 @@ async def forward(original_message: TMessage, origin: dict, target: dict):
     downloader = Downloader(db, origin_id, target_id)
     await downloader.start(progress)
     await progress.message.edit_text("All messages forwarded!")
-    del progresses[origin["hash"]]
+    del progresses[origin_id]
